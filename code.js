@@ -6,7 +6,7 @@ class Calculator {
   }
 
   clear() {
-    this.currentOperand = ''
+    this.currentOperand = '0'
     this.previousOperand = ''
     this.operation = undefined
   }
@@ -17,8 +17,13 @@ class Calculator {
   }
 
   appendSign(number) {
-    if (number === '+/-' && this.currentOperand.includes('.')) return
-    this.currentOperand = this.currentOperand.toString() + number.toString()
+    if (number === '+/-') return
+    this.currentOperand = this.currentOperand.toString() * -1;
+  }
+
+  calculatePercent(number) {
+    if (number === '%') return
+    this.currentOperand = this.currentOperand.toString() / 100;
   }
 
   chooseOperation(operation) {
@@ -49,9 +54,6 @@ class Calculator {
       case '÷':
         computation = prev / current
         break
-/*       case '+/-':
-        computation = - prev 
-        break */
       default:
         return
     }
@@ -94,6 +96,7 @@ const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const changeValue = document.querySelector('[data-change]')
+const calculatePercent = document.querySelector('[data-percent]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
 
@@ -128,6 +131,10 @@ changeValue.addEventListener('click', button => {
   calculator.updateDisplay()
 })
 
+calculatePercent.addEventListener('click', button => {
+  calculator.calculatePercent()
+  calculator.updateDisplay()
+})
 
 document.addEventListener('keydown', function (event) {
   let patternForNumbers = /[0-9]/g;

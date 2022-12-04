@@ -6,7 +6,7 @@
 
 body {
   height: 100vh;
-  background: black;
+  background: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +15,9 @@ body {
 .calculator {
   width: 300px;
   height: 400px;
-  color: #fff;
+  color: #ffffff;
   background: rgb(8, 7, 24);
-  border: 1px solid grey;
+  border: 1px solid #808080;
   border-radius: 20px;
 }
 
@@ -49,8 +49,8 @@ body {
 .btn {
   width: 100%;
   height: 55px;
-  color: #fff;
-  background: #333;
+  color: #ffffff;
+  background: #333333;
   display: flex;
   justify-content: center;
   align-items: center;
